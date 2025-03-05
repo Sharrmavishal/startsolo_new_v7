@@ -1,12 +1,6 @@
 backend:
   name: git-gateway
   branch: main # Branch to update
-  commit_messages:
-    create: "Create {{collection}} {{slug}}"
-    update: "Update {{collection}} {{slug}}"
-    delete: "Delete {{collection}} {{slug}}"
-    uploadMedia: "[skip ci] Upload {{path}}"
-    deleteMedia: "[skip ci] Delete {{path}}"
 
 # Site URL Configuration
 site_url: https://startsolo.in
@@ -20,7 +14,7 @@ public_folder: "/uploads"
 local_backend: true
 
 collections:
-  # 🔹 SITE SETTINGS
+  # 🔹 SITE SETTINGS (SINGLE FILE)
   - name: "settings"
     label: "Site Settings"
     files:
@@ -29,37 +23,16 @@ collections:
         file: "content/settings/general.json"
         fields:
           - { label: "Site Title", name: "siteTitle", widget: "string" }
-          - { label: "Site Description", name: "siteDescription", widget: "text" }
           - { label: "Logo Image", name: "logoImage", widget: "image" }
-
       - name: "footer"
         label: "Footer & Socials"
         file: "content/settings/footer.json"
         fields:
           - { label: "Footer Logo", name: "footerLogo", widget: "image" }
-          - label: "Quick Links"
-            name: "quickLinks"
-            widget: "list"
-            fields:
-              - { label: "Label", name: "label", widget: "string" }
-              - { label: "URL", name: "url", widget: "string" }
-          - label: "Social Media"
-            name: "socialMedia"
-            widget: "object"
-            fields:
-              - { label: "WhatsApp", name: "whatsapp", widget: "string" }
-              - { label: "Twitter", name: "twitter", widget: "string" }
-              - { label: "Instagram", name: "instagram", widget: "string" }
-              - { label: "LinkedIn", name: "linkedin", widget: "string" }
+          - { label: "Quick Links", name: "quickLinks", widget: "list", fields: [{ label: "Label", name: "label", widget: "string" }, { label: "URL", name: "url", widget: "string" }] }
+          - { label: "Social Media", name: "socialMedia", widget: "object", fields: [{ label: "Twitter", name: "twitter", widget: "string" }, { label: "Instagram", name: "instagram", widget: "string" }] }
 
-      - name: "whatsapp"
-        label: "Sticky WhatsApp CTA"
-        file: "content/settings/whatsapp.json"
-        fields:
-          - { label: "WhatsApp Number", name: "number", widget: "string" }
-          - { label: "CTA Text", name: "ctaText", widget: "string" }
-
-  # 🔹 PAGES (Dynamic Content)
+  # 🔹 PAGES (DYNAMIC FOLDER)
   - name: "pages"
     label: "Pages"
     folder: "content/pages"
@@ -67,10 +40,9 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Content", name: "body", widget: "markdown" }
 
-  # 🔹 BLOG POSTS
+  # 🔹 BLOG POSTS (DYNAMIC FOLDER)
   - name: "blog"
     label: "Blog Posts"
     folder: "content/blog"
@@ -78,11 +50,10 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "featuredImage", widget: "image" }
       - { label: "Content", name: "body", widget: "markdown" }
 
-  # 🔹 TESTIMONIALS
+  # 🔹 TESTIMONIALS (DYNAMIC FOLDER)
   - name: "testimonials"
     label: "Success Stories"
     folder: "content/testimonials"
@@ -92,7 +63,7 @@ collections:
       - { label: "Quote", name: "quote", widget: "text" }
       - { label: "Image", name: "image", widget: "image" }
 
-  # 🔹 CTA SECTIONS
+  # 🔹 CTA SECTIONS (SINGLE FILE)
   - name: "cta"
     label: "Call-To-Action Sections"
     file: "content/sections/cta.json"
@@ -100,7 +71,35 @@ collections:
       - { label: "Primary CTA Text", name: "primaryText", widget: "string" }
       - { label: "Primary CTA URL", name: "primaryUrl", widget: "string" }
 
-  # 🔹 ADDITIONAL SECTIONS (Smaller Dynamic Blocks)
+  # 🔹 TRAININGS & WORKSHOPS (DYNAMIC FOLDER)
+  - name: "workshops"
+    label: "Trainings & Workshops"
+    folder: "content/workshops"
+    create: true
+    fields:
+      - { label: "Workshop Title", name: "title", widget: "string" }
+      - { label: "Logo", name: "logo", widget: "image" }
+
+  # 🔹 EXPERT SPEAKERS (DYNAMIC FOLDER)
+  - name: "speakers"
+    label: "Expert Guest Speakers"
+    folder: "content/speakers"
+    create: true
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Bio", name: "bio", widget: "markdown" }
+
+  # 🔹 FAQs (DYNAMIC FOLDER)
+  - name: "faqs"
+    label: "Frequently Asked Questions"
+    folder: "content/faqs"
+    create: true
+    fields:
+      - { label: "Question", name: "question", widget: "string" }
+      - { label: "Answer", name: "answer", widget: "markdown" }
+
+  # 🔹 ADDITIONAL SECTIONS (SMALLER CONTENT BLOCKS)
   - name: "liveSessions"
     label: "Dynamic LIVE Sessions"
     file: "content/sections/live-sessions.json"
