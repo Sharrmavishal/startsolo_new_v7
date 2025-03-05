@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Solo Blueprint - Build a Profitable Solo Business Without Burnout</title>
+    <meta name="description" content="Join our exclusive webinar to discover how to build a profitable solo business without burning out. Learn proven strategies from successful entrepreneurs.">
+    <meta name="keywords" content="solo entrepreneur, webinar, business blueprint, freelance, side hustle, online business">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://startsoloblueprint.com/">
+    <meta property="og:title" content="Start Solo Blueprint - Build a Profitable Solo Business Without Burnout">
+    <meta property="og:description" content="Join our exclusive webinar to discover how to build a profitable solo business without burning out. Learn proven strategies from successful entrepreneurs.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://startsoloblueprint.com/">
+    <meta property="twitter:title" content="Start Solo Blueprint - Build a Profitable Solo Business Without Burnout">
+    <meta property="twitter:description" content="Join our exclusive webinar to discover how to build a profitable solo business without burning out. Learn proven strategies from successful entrepreneurs.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Structured Data for Event -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Start Solo Blueprint Webinar",
+        "description": "Learn how to build a profitable solo business without burning out in this 90-minute webinar.",
+        "startDate": "2025-06-15T14:00:00-04:00",
+        "endDate": "2025-06-15T15:30:00-04:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+        "location": {
+          "@type": "VirtualLocation",
+          "url": "https://startsoloblueprint.com/webinar"
+        },
+        "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        "offers": {
+          "@type": "Offer",
+          "price": "1",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/LimitedAvailability",
+          "validFrom": "2025-05-01",
+          "url": "https://startsoloblueprint.com/#webinar-dates"
+        },
+        "performer": {
+          "@type": "Person",
+          "name": "John Smith",
+          "jobTitle": "Business Coach & Founder of Start Solo Blueprint"
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Start Solo Blueprint",
+          "url": "https://startsoloblueprint.com"
+        }
+      }
+    </script>
+    
+    <!-- Google Analytics Placeholder -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+      
+      // Event tracking for conversion funnel
+      document.addEventListener('DOMContentLoaded', function() {
+        // Track CTA clicks
+        document.querySelectorAll('[data-tracking]').forEach(function(element) {
+          element.addEventListener('click', function() {
+            gtag('event', 'click', {
+              'event_category': 'conversion',
+              'event_label': this.getAttribute('data-tracking')
+            });
+          });
+        });
+      });
+    </script>
+    
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script type="module" crossorigin src="/assets/main-4k6xtbgV.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-Ds0sVrse.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
