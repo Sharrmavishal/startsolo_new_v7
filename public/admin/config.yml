@@ -6,7 +6,6 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
-  # 🌍 SITE SETTINGS
   - name: "settings"
     label: "Site Settings"
     files:
@@ -15,90 +14,32 @@ collections:
         file: "content/settings/general.json"
         fields:
           - { label: "Site Title", name: "siteTitle", widget: "string" }
-          - { label: "Site Description", name: "siteDescription", widget: "text" }
           - { label: "Logo Image", name: "logoImage", widget: "image" }
-          - { label: "Primary CTA Button Text", name: "ctaText", widget: "string" }
-          - { label: "Primary CTA Button Link", name: "ctaUrl", widget: "string" }
-
-      - name: "header"
-        label: "Header & Navigation"
-        file: "content/settings/header.json"
+      - name: "branding"
+        label: "Branding & Colors"
+        file: "content/settings/branding.json"
         fields:
-          - label: "Navigation Links"
-            name: "navLinks"
-            widget: "list"
-            fields:
-              - { label: "Label", name: "label", widget: "string" }
-              - { label: "URL", name: "url", widget: "string" }
-              - { label: "Is External", name: "external", widget: "boolean", default: false }
+          - { label: "Primary Color", name: "primaryColor", widget: "color" }
+          - { label: "Secondary Color", name: "secondaryColor", widget: "color" }
 
-      - name: "footer"
-        label: "Footer"
-        file: "content/settings/footer.json"
-        fields:
-          - { label: "Footer Text", name: "footerText", widget: "string" }
-          - label: "Quick Links"
-            name: "links"
-            widget: "list"
-            fields:
-              - { label: "Label", name: "label", widget: "string" }
-              - { label: "URL", name: "url", widget: "string" }
-
-  # 🔥 HERO SECTION
-  - name: "hero"
-    label: "Hero Section"
-    file: "content/sections/hero.json"
-    fields:
-      - { label: "Main Heading", name: "heading", widget: "string" }
-      - { label: "Subheading", name: "subheading", widget: "text" }
-      - { label: "Background Image", name: "bgImage", widget: "image" }
-      - { label: "Primary CTA Text", name: "ctaText", widget: "string" }
-      - { label: "Primary CTA URL", name: "ctaUrl", widget: "string" }
-
-  # 📅 WEBINAR SESSIONS
-  - name: "webinarSessions"
-    label: "Webinar Sessions"
-    folder: "content/webinars"
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
     create: true
     fields:
+      - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Spots Left", name: "spotsLeft", widget: "number" }
-      - { label: "Registration Link", name: "registrationLink", widget: "string" }
+      - { label: "Featured Image", name: "featuredImage", widget: "image" }
+      - { label: "Content", name: "body", widget: "markdown" }
 
-  # 🎓 COURSE OVERVIEW
-  - name: "courseOverview"
-    label: "Course Overview"
-    file: "content/sections/course.json"
-    fields:
-      - { label: "Course Title", name: "courseTitle", widget: "string" }
-      - { label: "Course Description", name: "courseDescription", widget: "text" }
-      - label: "Modules"
-        name: "modules"
-        widget: "list"
-        fields:
-          - { label: "Module Title", name: "moduleTitle", widget: "string" }
-          - { label: "Module Description", name: "moduleDescription", widget: "text" }
-
-  # 👥 INSTRUCTOR & EXPERTS
-  - name: "experts"
-    label: "Instructors & Experts"
-    folder: "content/experts"
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"
     create: true
     fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Bio", name: "bio", widget: "text" }
-      - { label: "Profile Image", name: "profileImage", widget: "image" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Content", name: "body", widget: "markdown" }
 
-  # ❓ FAQ SECTION
-  - name: "faqs"
-    label: "FAQ Section"
-    folder: "content/faqs"
-    create: true
-    fields:
-      - { label: "Question", name: "question", widget: "string" }
-      - { label: "Answer", name: "answer", widget: "text" }
-
-  # 🏆 TESTIMONIALS
   - name: "testimonials"
     label: "Testimonials"
     folder: "content/testimonials"
@@ -106,25 +47,30 @@ collections:
     fields:
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Testimonial", name: "testimonial", widget: "text" }
-      - { label: "Image", name: "image", widget: "image" }
 
-  # 📢 TRAININGS & WORKSHOPS
   - name: "trainings"
     label: "Trainings & Workshops"
-    file: "content/sections/trainings.json"
-    fields:
-      - label: "Logos"
-        name: "logos"
-        widget: "list"
+    files:
+      - name: "logos"
+        label: "Partner Logos"
+        file: "content/trainings/logos.json"
         fields:
-          - { label: "Logo Image", name: "logoImage", widget: "image" }
-          - { label: "Company Name", name: "company", widget: "string" }
+          - { label: "Logos", name: "logos", widget: "list", field: { label: "Logo", name: "logo", widget: "image" } }
 
-  # 🔻 COUNTDOWN TIMER
+  - name: "webinarSessions"
+    label: "Webinar Sessions"
+    folder: "content/webinars"
+    create: true
+    fields:
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Registration Link", name: "registrationLink", widget: "string" }
+
   - name: "countdown"
     label: "Countdown Timer"
-    file: "content/settings/countdown.json"
-    fields:
-      - { label: "Enable", name: "enabled", widget: "boolean" }
-      - { label: "End Date", name: "endDate", widget: "datetime" }
-      - { label: "Message", name: "message", widget: "string" }
+    files:
+      - name: "timer"
+        label: "Countdown Settings"
+        file: "content/settings/countdown.json"
+        fields:
+          - { label: "Enable Countdown", name: "enabled", widget: "boolean" }
+          - { label: "Target Date", name: "targetDate", widget: "datetime" }
