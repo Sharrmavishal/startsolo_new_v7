@@ -8,19 +8,17 @@ backend:
     uploadMedia: "[skip ci] Upload {{path}}"
     deleteMedia: "[skip ci] Delete {{path}}"
 
-# Site Settings
 site_url: https://startsolo.in
 display_url: https://startsolo.in
 
-# Media Handling
+# Media Storage
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
-# Enable local backend for development
 local_backend: true
 
 collections:
-  # ✅ SITE SETTINGS (Uses files)
+  # 🔹 SITE SETTINGS
   - name: "settings"
     label: "Site Settings"
     files:
@@ -30,132 +28,107 @@ collections:
         fields:
           - { label: "Site Title", name: "siteTitle", widget: "string" }
           - { label: "Site Description", name: "siteDescription", widget: "text" }
-      - name: "branding"
-        label: "Branding & Colors"
-        file: "content/settings/branding.json"
-        fields:
-          - { label: "Primary Color", name: "primaryColor", widget: "color", default: "#e57341" }
-          - { label: "Secondary Color", name: "secondaryColor", widget: "color", default: "#0097b2" }
-      - name: "countdown"
-        label: "Countdown Timer"
-        file: "content/settings/countdown.json"
-        fields:
-          - { label: "Enable", name: "enabled", widget: "boolean", default: true }
-          - { label: "End Date", name: "endDate", widget: "datetime" }
-          - { label: "Message", name: "message", widget: "string" }
+          - { label: "Logo Image", name: "logoImage", widget: "image" }
+          - { label: "Logo Text", name: "logoText", widget: "string", default: "Start Solo" }
+          - { label: "Countdown Message", name: "countdownMessage", widget: "string", default: "Only {days} days left!" }
+          - { label: "Countdown Target Date", name: "countdownTargetDate", widget: "datetime" }
 
-  # ✅ NAVIGATION SETTINGS
-  - name: "header"
-    label: "Header Settings"
-    file: "content/settings/header.json"
+  # 🔹 HEADER NAVIGATION
+  - name: "navigation"
+    label: "Header Navigation"
+    file: "content/settings/navigation.json"
     fields:
-      - { label: "Logo Image", name: "logoImage", widget: "image" }
       - label: "Navigation Links"
         name: "navLinks"
         widget: "list"
         fields:
           - { label: "Label", name: "label", widget: "string" }
           - { label: "URL", name: "url", widget: "string" }
+      - label: "CTA Button"
+        name: "ctaButton"
+        widget: "object"
+        fields:
+          - { label: "Text", name: "text", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
 
-  # ✅ DYNAMIC PAGES (Uses folder)
-  - name: "pages"
-    label: "Pages"
-    folder: "content/pages"
-    create: true
+  # 🔹 HERO SECTION
+  - name: "hero"
+    label: "Hero Section"
+    file: "content/sections/hero.json"
+    fields:
+      - { label: "Heading", name: "heading", widget: "string" }
+      - { label: "Subheading", name: "subheading", widget: "text" }
+      - { label: "CTA Text", name: "ctaText", widget: "string" }
+      - { label: "CTA URL", name: "ctaUrl", widget: "string" }
+      - { label: "Background Image", name: "backgroundImage", widget: "image" }
+
+  # 🔹 TRAINING & WORKSHOPS (LOGO UPLOADS)
+  - name: "training_workshops"
+    label: "Training & Workshops"
+    file: "content/sections/training_workshops.json"
+    fields:
+      - { label: "Title", name: "title", widget: "string", default: "Training & Workshops" }
+      - label: "Logos"
+        name: "logos"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "image", widget: "image", media_folder: "public/uploads", public_folder: "/uploads" }
+          - { label: "Alt Text", name: "alt", widget: "string" }
+
+  # 🔹 WEBINAR INFO
+  - name: "webinar_info"
+    label: "Webinar Info"
+    file: "content/sections/webinarInfo.json"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Meta Description", name: "metaDescription", widget: "text" }
-      - { label: "Content", name: "body", widget: "markdown" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Session Duration", name: "duration", widget: "string" }
+      - { label: "Session Price", name: "price", widget: "string" }
+      - { label: "Benefits", name: "benefits", widget: "list", fields: [{ label: "Point", name: "point", widget: "string" }] }
 
-  # ✅ BLOG POSTS (Uses folder)
-  - name: "blog"
-    label: "Blog Posts"
-    folder: "content/blog"
-    create: true
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "featuredImage", widget: "image" }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Content", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
-
-  # ✅ TESTIMONIALS (Uses folder)
+  # 🔹 TESTIMONIALS SECTION
   - name: "testimonials"
     label: "Testimonials"
     folder: "content/testimonials"
     create: true
     fields:
       - { label: "Name", name: "name", widget: "string" }
-      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Position", name: "position", widget: "string" }
       - { label: "Testimonial", name: "testimonial", widget: "text" }
-      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Profile Image", name: "image", widget: "image" }
 
-  # ✅ EXPERT SPEAKERS (Uses folder)
-  - name: "experts"
-    label: "Expert Speakers"
-    folder: "content/experts"
-    create: true
-    fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Topic", name: "topic", widget: "string" }
-      - { label: "Session Date", name: "sessionDate", widget: "datetime" }
-      - { label: "Profile Image", name: "profileImage", widget: "image" }
-
-  # ✅ TRAINING & WORKSHOPS (Uses files)
-  - name: "training"
-    label: "Training & Workshops"
-    file: "content/sections/training.json"
-    fields:
-      - { label: "Featured Logos", name: "logos", widget: "list", field: { label: "Logo", name: "logo", widget: "image" } }
-
-  # ✅ WEBINAR SESSIONS (Uses files)
-  - name: "webinarSessions"
-    label: "Webinar Sessions"
-    files:
-      - name: "dates"
-        label: "Available Dates"
-        file: "content/sections/webinarDates.json"
-        fields:
-          - label: "Available Dates"
-            name: "dates"
-            widget: "list"
-            fields:
-              - { label: "Session ID", name: "id", widget: "string" }
-              - { label: "Date", name: "date", widget: "datetime" }
-              - { label: "Spots Left", name: "spotsLeft", widget: "number" }
-              - { label: "Registration Link", name: "registrationLink", widget: "string" }
-
-  # ✅ FOOTER CONTENT (Uses files)
-  - name: "footer"
-    label: "Footer"
-    file: "content/sections/footer.json"
-    fields:
-      - { label: "Quick Links", name: "quickLinks", widget: "list", field: { label: "Link", name: "link", widget: "string" } }
-      - { label: "Social Media", name: "socialMedia", widget: "list", field: { label: "Platform", name: "platform", widget: "string" } }
-
-  # ✅ COURSE OVERVIEW & CURRICULUM (Uses files)
+  # 🔹 COURSE OVERVIEW
   - name: "course"
     label: "Course Overview"
     file: "content/sections/course.json"
     fields:
-      - { label: "Course Modules", name: "modules", widget: "list", field: { label: "Module Title", name: "title", widget: "string" } }
+      - { label: "Course Title", name: "title", widget: "string" }
+      - { label: "Course Description", name: "description", widget: "text" }
+      - { label: "Modules", name: "modules", widget: "list", fields: [{ label: "Module Name", name: "moduleName", widget: "string" }] }
 
-  # ✅ HOME PAGE SECTIONS (Uses files)
-  - name: "sections"
-    label: "Content Sections"
-    files:
-      - name: "hero"
-        label: "Hero Section"
-        file: "content/sections/hero.json"
+  # 🔹 WEBINAR DATES & REGISTRATION
+  - name: "webinarDates"
+    label: "Webinar Dates"
+    file: "content/sections/webinarDates.json"
+    fields:
+      - label: "Available Dates"
+        name: "dates"
+        widget: "list"
         fields:
-          - { label: "Heading", name: "heading", widget: "string" }
-          - { label: "Subheading", name: "subheading", widget: "text" }
-      - name: "why_attend"
-        label: "Why Attend"
-        file: "content/sections/why_attend.json"
+          - { label: "Date", name: "date", widget: "datetime" }
+          - { label: "Spots Left", name: "spotsLeft", widget: "number" }
+          - { label: "Registration Link", name: "registrationLink", widget: "string" }
+
+  # 🔹 FOOTER SETTINGS
+  - name: "footer"
+    label: "Footer"
+    file: "content/sections/footer.json"
+    fields:
+      - { label: "Footer Text", name: "footerText", widget: "string" }
+      - label: "Social Links"
+        name: "socialLinks"
+        widget: "list"
         fields:
-          - { label: "Reasons", name: "reasons", widget: "list", field: { label: "Reason", name: "text", widget: "string" } }
+          - { label: "Platform", name: "platform", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+
