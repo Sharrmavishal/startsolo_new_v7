@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: main # Branch to update
   commit_messages:
     create: "Create {{collection}} {{slug}}"
     update: "Update {{collection}} {{slug}}"
@@ -17,7 +17,53 @@ public_folder: "/uploads"
 local_backend: true
 
 collections:
-  # 🛠️ SITE SETTINGS
+  # 1️⃣ BLOG POSTS (Dynamic, Multiple Entries)
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "featuredImage", widget: "image" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Content", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
+
+  # 2️⃣ TESTIMONIALS (Dynamic)
+  - name: "testimonials"
+    label: "Success Stories"
+    folder: "content/testimonials"
+    create: true
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Testimonial", name: "testimonial", widget: "text" }
+      - { label: "Company", name: "company", widget: "string", required: false }
+
+  # 3️⃣ EXPERT SPEAKERS (Dynamic)
+  - name: "speakers"
+    label: "Expert Guest Speakers"
+    folder: "content/speakers"
+    create: true
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "markdown" }
+
+  # 4️⃣ FAQ (Dynamic)
+  - name: "faqs"
+    label: "Frequently Asked Questions"
+    folder: "content/faqs"
+    create: true
+    fields:
+      - { label: "Question", name: "question", widget: "string" }
+      - { label: "Answer", name: "answer", widget: "text" }
+
+  # 5️⃣ SITE SETTINGS (Static, Single Files)
   - name: "settings"
     label: "Site Settings"
     files:
@@ -26,120 +72,68 @@ collections:
         file: "content/settings/general.json"
         fields:
           - { label: "Site Title", name: "siteTitle", widget: "string" }
-          - { label: "Site Description", name: "siteDescription", widget: "text" }
           - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Cohort Start Date", name: "cohortStartDate", widget: "datetime" }
+
       - name: "branding"
-        label: "Branding & Colors"
+        label: "Branding"
         file: "content/settings/branding.json"
         fields:
           - { label: "Primary Color", name: "primaryColor", widget: "color" }
           - { label: "Secondary Color", name: "secondaryColor", widget: "color" }
 
-  # 📖 PAGES
-  - name: "pages"
-    label: "Pages"
-    folder: "content/pages"
-    create: true
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Meta Description", name: "metaDescription", widget: "text" }
-      - { label: "Content", name: "body", widget: "markdown" }
-
-  # 📝 BLOG
-  - name: "blog"
-    label: "Blog Posts"
-    folder: "content/blog"
-    create: true
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "featuredImage", widget: "image" }
-      - { label: "Content", name: "body", widget: "markdown" }
-
-  # ⭐ TESTIMONIALS
-  - name: "testimonials"
-    label: "Success Stories"
-    folder: "content/testimonials"
-    create: true
-    fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Photo", name: "photo", widget: "image" }
-      - { label: "Quote", name: "quote", widget: "text" }
-
-  # 🎓 TRAININGS & WORKSHOPS
-  - name: "trainings"
-    label: "Trainings & Workshops"
-    file: "content/sections/trainings.json"
-    fields:
-      - label: "Partner Logos"
-        name: "logos"
-        widget: "list"
-        field: { label: "Logo", name: "logo", widget: "image" }
-
-  # 🕒 COUNTDOWN TIMER
-  - name: "countdown"
-    label: "Countdown Timer"
-    file: "content/settings/countdown.json"
-    fields:
-      - { label: "Enable", name: "enabled", widget: "boolean" }
-      - { label: "End Date", name: "endDate", widget: "datetime" }
-      - { label: "Message", name: "message", widget: "string" }
-
-  # 🎤 EXPERT SPEAKERS
-  - name: "speakers"
-    label: "Learn from the Best"
-    folder: "content/speakers"
-    create: true
-    fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Photo", name: "photo", widget: "image" }
-      - { label: "Bio", name: "bio", widget: "markdown" }
-
-  # 🎯 CTA SECTIONS
-  - name: "cta"
-    label: "Call-to-Actions"
-    file: "content/sections/cta.json"
-    fields:
-      - { label: "Primary CTA", name: "primary", widget: "object", fields: [{ label: "Text", name: "text", widget: "string" }, { label: "URL", name: "url", widget: "string" }] }
-      - { label: "Community CTA", name: "community", widget: "object", fields: [{ label: "Text", name: "text", widget: "string" }, { label: "URL", name: "url", widget: "string" }] }
-
-  # 🗓️ WEBINAR SESSIONS
-  - name: "webinarSessions"
-    label: "Webinar Sessions"
-    file: "content/sections/webinar-dates.json"
-    fields:
-      - label: "Available Dates"
-        name: "dates"
-        widget: "list"
+      - name: "header"
+        label: "Header & Navigation"
+        file: "content/settings/header.json"
         fields:
-          - { label: "Session ID", name: "id", widget: "string" }
+          - { label: "Logo Image", name: "logoImage", widget: "image" }
+          - { label: "Navigation Links", name: "navLinks", widget: "list", fields: [{label: "Label", name: "label", widget: "string"}, {label: "URL", name: "url", widget: "string"}] }
+
+      - name: "footer"
+        label: "Footer Settings"
+        file: "content/settings/footer.json"
+        fields:
+          - { label: "Quick Links", name: "quickLinks", widget: "list", fields: [{label: "Label", name: "label", widget: "string"}, {label: "URL", name: "url", widget: "string"}] }
+          - { label: "Social Media", name: "socialMedia", widget: "object", fields: [{label: "Twitter", name: "twitter", widget: "string"}, {label: "Instagram", name: "instagram", widget: "string"}] }
+
+  # 6️⃣ PAGE SECTIONS (Static, Single Files)
+  - name: "sections"
+    label: "Content Sections"
+    files:
+      - name: "hero"
+        label: "Hero Section"
+        file: "content/sections/hero.json"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "string" }
+          - { label: "Hero Image", name: "heroImage", widget: "image" }
+
+      - name: "course"
+        label: "Course Overview"
+        file: "content/sections/course.json"
+        fields:
+          - { label: "Overview", name: "overview", widget: "markdown" }
+          - { label: "Curriculum", name: "curriculum", widget: "list", fields: [{label: "Module", name: "module", widget: "string"}, {label: "Description", name: "description", widget: "text"}] }
+
+      - name: "cta"
+        label: "Call-to-Actions"
+        file: "content/sections/cta.json"
+        fields:
+          - { label: "Primary CTA", name: "primary", widget: "object", fields: [{label: "Text", name: "text", widget: "string"}, {label: "URL", name: "url", widget: "string"}] }
+          - { label: "Community CTA", name: "community", widget: "object", fields: [{label: "Text", name: "text", widget: "string"}, {label: "URL", name: "url", widget: "string"}] }
+
+      - name: "countdown"
+        label: "Countdown Timer"
+        file: "content/settings/countdown.json"
+        fields:
+          - { label: "Enable", name: "enabled", widget: "boolean" }
+          - { label: "End Date", name: "endDate", widget: "datetime" }
+          - { label: "Message", name: "message", widget: "string" }
+
+      - name: "webinarSessions"
+        label: "Webinar Sessions"
+        file: "content/sections/webinarDates.json"
+        fields:
           - { label: "Date", name: "date", widget: "datetime" }
           - { label: "Spots Left", name: "spotsLeft", widget: "number" }
           - { label: "Registration Link", name: "registrationLink", widget: "string" }
-
-  # 🔗 FOOTER SETTINGS
-  - name: "footer"
-    label: "Footer Links"
-    file: "content/settings/footer.json"
-    fields:
-      - label: "Quick Links"
-        name: "quickLinks"
-        widget: "list"
-        fields:
-          - { label: "Label", name: "label", widget: "string" }
-          - { label: "URL", name: "url", widget: "string" }
-      - label: "Social Media"
-        name: "socialMedia"
-        widget: "object"
-        fields:
-          - { label: "Twitter", name: "twitter", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "LinkedIn", name: "linkedin", widget: "string" }
-      - label: "Legal Links"
-        name: "legalLinks"
-        widget: "list"
-        fields:
-          - { label: "Label", name: "label", widget: "string" }
-          - { label: "URL", name: "url", widget: "string" }
-
