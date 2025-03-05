@@ -50,50 +50,51 @@ collections:
           - { label: "CTA Button Text", name: "ctaText", widget: "string" }
           - { label: "CTA Button URL", name: "ctaUrl", widget: "string" }
 
-  # 🔥 HOMEPAGE CONTENT SECTIONS
+  # 🔥 HOMEPAGE CONTENT SECTIONS (✅ Fixed)
   - name: "homepage"
     label: "Homepage Sections"
-    files:
-      - name: "hero"
-        label: "Hero Section"
-        file: "content/homepage/hero.json"
-        fields:
-          - { label: "Headline", name: "headline", widget: "string" }
-          - { label: "Subheading", name: "subheading", widget: "text" }
-          - { label: "Video/Image Preview", name: "media", widget: "image" }
-          - { label: "CTA Button Text", name: "ctaText", widget: "string" }
-          - { label: "CTA Button URL", name: "ctaUrl", widget: "string" }
+    folder: "content/homepage" # 🔹 Added `folder`
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Headline", name: "headline", widget: "string" }
+      - { label: "Subheading", name: "subheading", widget: "text" }
+      - { label: "Hero Image", name: "heroImage", widget: "image" }
 
-      - name: "why_attend"
-        label: "Why Attend?"
-        file: "content/homepage/why_attend.md"
-        fields:
-          - { label: "Main Text", name: "content", widget: "markdown" }
-          - { label: "Learning Points", name: "learning_points", widget: "list", fields: [{ label: "Point", name: "point", widget: "string" }] }
+  - name: "why_attend"
+    label: "Why Attend?"
+    file: "content/homepage/why_attend.md"
+    fields:
+      - { label: "Main Text", name: "content", widget: "markdown" }
+      - { label: "Learning Points", name: "learning_points", widget: "list", fields: [{ label: "Point", name: "point", widget: "string" }] }
 
-      - name: "who_should_attend"
-        label: "Who Should Attend?"
-        file: "content/sections/course.json"
-        fields:
-          - { label: "Target Audience", name: "targetAudience", widget: "list", fields: [{ label: "Audience Type", name: "type", widget: "string" }] }
+  - name: "who_should_attend"
+    label: "Who Should Attend?"
+    file: "content/sections/course.json"
+    fields:
+      - { label: "Target Audience", name: "targetAudience", widget: "list", fields: [{ label: "Audience Type", name: "type", widget: "string" }] }
 
-      - name: "course_overview"
-        label: "Course Overview"
-        file: "content/sections/course.json"
-        fields:
-          - { label: "Course Modules", name: "modules", widget: "list", fields: [{ label: "Module Name", name: "moduleName", widget: "string" }, { label: "Description", name: "description", widget: "text" }] }
+  - name: "course_overview"
+    label: "Course Overview"
+    file: "content/sections/course.json"
+    fields:
+      - { label: "Course Modules", name: "modules", widget: "list", fields: [{ label: "Module Name", name: "moduleName", widget: "string" }, { label: "Description", name: "description", widget: "text" }] }
 
-      - name: "testimonials"
-        label: "Testimonials"
-        file: "content/homepage/testimonials.md"
-        fields:
-          - { label: "Success Stories", name: "stories", widget: "list", fields: [{ label: "Name", name: "name", widget: "string" }, { label: "Quote", name: "quote", widget: "text" }] }
+  # ✅ TESTIMONIALS (Fixed)
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/homepage/testimonials" # 🔹 Added `folder`
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Quote", name: "quote", widget: "text" }
 
-      - name: "brand_logos"
-        label: "Training & Workshop Logos"
-        file: "content/homepage/brand_logos.md"
-        fields:
-          - { label: "Logos", name: "logos", widget: "list", fields: [{ label: "Image", name: "image", widget: "image" }, { label: "Alt Text", name: "alt", widget: "string" }] }
+  - name: "brand_logos"
+    label: "Training & Workshop Logos"
+    file: "content/homepage/brand_logos.md"
+    fields:
+      - { label: "Logos", name: "logos", widget: "list", fields: [{ label: "Image", name: "image", widget: "image" }, { label: "Alt Text", name: "alt", widget: "string" }] }
 
   # 📅 WEBINAR DETAILS
   - name: "webinars"
