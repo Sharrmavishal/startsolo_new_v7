@@ -20,7 +20,7 @@ public_folder: "/uploads"
 local_backend: true
 
 collections:
-  # SITE SETTINGS
+  # 🔹 **Site Settings**
   - name: "settings"
     label: "Site Settings"
     files:
@@ -30,161 +30,133 @@ collections:
         fields:
           - { label: "Site Title", name: "siteTitle", widget: "string" }
           - { label: "Site Description", name: "siteDescription", widget: "text" }
-          - { label: "Logo Image", name: "logoImage", widget: "string", required: false, hint: "URL to your logo image" }
-          - { label: "Logo Text", name: "logoText", widget: "string", default: "Start Solo" }
-          - { label: "Cohort Start Date", name: "cohortStartDate", widget: "string" }
-          - { label: "Current Cohort Number", name: "currentCohort", widget: "number" }
-          - { label: "Next Cohort Number", name: "nextCohort", widget: "number" }
-          - { label: "Next Cohort Start Date", name: "nextCohortStartDate", widget: "string" }
-          - label: "Countdown Settings"
-            name: "countdown"
-            widget: "object"
-            fields:
-              - { label: "Enable Countdown", name: "enabled", widget: "boolean", default: true }
-              - { label: "Countdown Message", name: "message", widget: "string", default: "URGENT: Only {days} days left before registration closes!" }
-              - { label: "Button Text", name: "buttonText", widget: "string", default: "Reserve Your Spot" }
-              - { label: "Button URL", name: "buttonUrl", widget: "string", default: "#webinar-dates" }
-              - { label: "Target Date", name: "targetDate", widget: "datetime" }
+          - { label: "Logo Image", name: "logoImage", widget: "image" }
+          - { label: "Cohort Start Date", name: "cohortStartDate", widget: "datetime" }
+          - { label: "Next Cohort Start Date", name: "nextCohortStartDate", widget: "datetime" }
+          
+      - name: "countdown"
+        label: "Countdown Timer"
+        file: "src/content/settings/countdown.json"
+        fields:
+          - { label: "Enable Countdown", name: "enabled", widget: "boolean", default: true }
+          - { label: "Countdown Message", name: "message", widget: "string" }
+          - { label: "Target Date", name: "targetDate", widget: "datetime" }
 
       - name: "header"
-        label: "Header Settings"
+        label: "Header & Navigation"
         file: "src/content/settings/header.json"
         fields:
-          - { label: "Logo Text", name: "logoText", widget: "string", default: "Start Solo", hint: "Text to display as the logo (if not using an image)" }
-          - { label: "Use Logo Image", name: "useLogoImage", widget: "boolean", default: false, hint: "Toggle between text logo and image logo" }
-          - { label: "Logo Image", name: "logoImage", widget: "string", required: false, hint: "URL to your logo image (recommended size: 180px width, transparent background)" }
-          - { label: "Logo Alt Text", name: "logoAlt", widget: "string", default: "Start Solo Blueprint Logo", hint: "Alternative text for the logo image for accessibility" }
-          - { label: "Logo Width", name: "logoWidth", widget: "number", default: 180, hint: "Width of the logo in pixels" }
+          - { label: "Logo Image", name: "logoImage", widget: "image" }
           - label: "Navigation Links"
             name: "navLinks"
             widget: "list"
-            hint: "Main navigation menu items"
             fields:
-              - { label: "Label", name: "label", widget: "string", hint: "Text displayed in the navigation" }
-              - { label: "URL", name: "url", widget: "string", hint: "Where the link should point to (use # for page sections)" }
-              - { label: "Is External Link", name: "external", widget: "boolean", default: false, required: false, hint: "Check if the link points to an external website" }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
           - label: "CTA Button"
             name: "ctaButton"
             widget: "object"
             fields:
-              - { label: "Text", name: "text", widget: "string", hint: "Text for the main call-to-action button" }
-              - { label: "URL", name: "url", widget: "string", hint: "Where the button should link to (use # for page sections)" }
-              - { label: "Tracking ID", name: "trackingId", widget: "string", required: false, hint: "ID for analytics tracking" }
-          - label: "Mobile Menu Settings"
-            name: "mobileMenu"
-            widget: "object"
-            fields:
-              - { label: "CTA Button Text", name: "ctaText", widget: "string", default: "Reserve Your Spot", hint: "Text for the CTA button in mobile menu" }
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
 
-      - name: "branding"
-        label: "Branding & Colors"
-        file: "src/content/settings/branding.json"
+  # 🔹 **Page Sections**
+  - name: "homepage"
+    label: "Homepage Sections"
+    files:
+      - name: "hero"
+        label: "Hero Section"
+        file: "src/content/sections/hero.json"
         fields:
-          - label: "Primary Color"
-            name: "primaryColor"
-            widget: "object"
-            fields:
-              - { label: "Default", name: "default", widget: "color", default: "#e57341", hint: "Main brand color" }
-              - { label: "Light", name: "light", widget: "color", default: "#f8a47f", hint: "Lighter version of primary color" }
-              - { label: "Dark", name: "dark", widget: "color", default: "#c45a2f", hint: "Darker version of primary color" }
-          - label: "Secondary Color"
-            name: "secondaryColor"
-            widget: "object"
-            fields:
-              - { label: "Default", name: "default", widget: "color", default: "#0097b2", hint: "Secondary brand color" }
-              - { label: "Light", name: "light", widget: "color", default: "#33b3ca", hint: "Lighter version of secondary color" }
-              - { label: "Dark", name: "dark", widget: "color", default: "#007a8f", hint: "Darker version of secondary color" }
-          - label: "Accent Color"
-            name: "accentColor"
-            widget: "object"
-            fields:
-              - { label: "Default", name: "default", widget: "color", default: "#eeb44e", hint: "Accent color for highlights" }
-              - { label: "Light", name: "light", widget: "color", default: "#f4c87a", hint: "Lighter version of accent color" }
-              - { label: "Dark", name: "dark", widget: "color", default: "#d9a13c", hint: "Darker version of accent color" }
-          - label: "Tertiary Color"
-            name: "tertiaryColor"
-            widget: "object"
-            fields:
-              - { label: "Default", name: "default", widget: "color", default: "#6e936a", hint: "Tertiary brand color" }
-              - { label: "Light", name: "light", widget: "color", default: "#8aaa87", hint: "Lighter version of tertiary color" }
-              - { label: "Dark", name: "dark", widget: "color", default: "#5a7857", hint: "Darker version of tertiary color" }
-          - label: "Highlight Color"
-            name: "highlightColor"
-            widget: "object"
-            fields:
-              - { label: "Default", name: "default", widget: "color", default: "#e44041", hint: "Color for important highlights/alerts" }
-              - { label: "Light", name: "light", widget: "color", default: "#ea6c6d", hint: "Lighter version of highlight color" }
-              - { label: "Dark", name: "dark", widget: "color", default: "#c13334", hint: "Darker version of highlight color" }
-          - label: "Rich Color"
-            name: "richColor"
-            widget: "object"
-            fields:
-              - { label: "Default", name: "default", widget: "color", default: "#3e1311", hint: "Deep, rich color for backgrounds" }
-              - { label: "Light", name: "light", widget: "color", default: "#5a2d2b", hint: "Lighter version of rich color" }
-              - { label: "Dark", name: "dark", widget: "color", default: "#2a0d0c", hint: "Darker version of rich color" }
-          - label: "Typography"
-            name: "typography"
-            widget: "object"
-            fields:
-              - { label: "Heading Font", name: "headingFont", widget: "string", default: "sans-serif", hint: "Font family for headings (use web-safe fonts)" }
-              - { label: "Body Font", name: "bodyFont", widget: "string", default: "sans-serif", hint: "Font family for body text (use web-safe fonts)" }
-              - { label: "Base Font Size", name: "baseFontSize", widget: "string", default: "16px", hint: "Base font size for the website" }
+          - { label: "Main Heading", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "text" }
+          - { label: "Hero Image", name: "heroImage", widget: "image" }
+          - { label: "CTA Button Text", name: "ctaText", widget: "string" }
+          - { label: "CTA Button URL", name: "ctaUrl", widget: "string" }
 
-      - name: "seo"
-        label: "SEO Settings"
-        file: "src/content/settings/seo.json"
+      - name: "trainings"
+        label: "Trainings & Workshops"
+        file: "src/content/sections/trainings.json"
         fields:
-          - { label: "Meta Title", name: "metaTitle", widget: "string", hint: "Title for search engines (60-70 characters max)" }
-          - { label: "Meta Description", name: "metaDescription", widget: "text", hint: "Description for search engines (150-160 characters max)" }
-          - { label: "Meta Keywords", name: "metaKeywords", widget: "string", hint: "Comma-separated keywords for search engines" }
-          - { label: "OG Image", name: "ogImage", widget: "string", required: false, hint: "URL to the image used for social sharing (recommended size: 1200x630px)" }
-          - { label: "Twitter Card Type", name: "twitterCard", widget: "select", options: ["summary", "summary_large_image"], default: "summary_large_image", hint: "Type of Twitter card to display" }
-          - { label: "Google Analytics ID", name: "gaId", widget: "string", required: false, hint: "Your Google Analytics tracking ID" }
-          - { label: "Structured Data Event Date", name: "eventDate", widget: "string", hint: "Start date/time of the event in ISO format (YYYY-MM-DDThh:mm:ss+/-hh:mm)" }
-          - { label: "Structured Data Event End Date", name: "eventEndDate", widget: "string", hint: "End date/time of the event in ISO format (YYYY-MM-DDThh:mm:ss+/-hh:mm)" }
+          - label: "Workshops"
+            name: "workshops"
+            widget: "list"
+            fields:
+              - { label: "Workshop Name", name: "name", widget: "string" }
+              - { label: "Workshop Logo", name: "logo", widget: "image" }
+              - { label: "Description", name: "description", widget: "text" }
 
-  # PAGES
-  - name: "pages"
-    label: "Pages"
-    folder: "src/content/pages"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Meta Description", name: "metaDescription", widget: "text" }
-      - { label: "Content", name: "content", widget: "markdown" }
-      - { label: "Show in Navigation", name: "showInNav", widget: "boolean", default: false }
-      - { label: "Navigation Label", name: "navLabel", widget: "string", required: false }
-      - { label: "Navigation Order", name: "navOrder", widget: "number", required: false }
+      - name: "webinar"
+        label: "Webinar Info"
+        file: "src/content/sections/webinar.json"
+        fields:
+          - { label: "Session Title", name: "sessionTitle", widget: "string" }
+          - { label: "Session Duration", name: "duration", widget: "string" }
+          - { label: "Session Price", name: "price", widget: "string" }
 
-  # BLOG
-  - name: "blog"
-    label: "Blog Posts"
-    folder: "src/content/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "featuredImage", widget: "string" }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Content", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
+      - name: "testimonials"
+        label: "Testimonials"
+        file: "src/content/sections/testimonials.json"
+        fields:
+          - label: "Featured Testimonials"
+            name: "featured"
+            widget: "list"
+            fields:
+              - { label: "Author", name: "author", widget: "string" }
+              - { label: "Quote", name: "quote", widget: "text" }
 
-  # WEBINAR DATES
-  - name: "webinarDates"
-    label: "Webinar Dates"
-    folder: "src/content/webinarDates"
-    create: true
+      - name: "course"
+        label: "Course Overview"
+        file: "src/content/sections/course.json"
+        fields:
+          - { label: "Course Name", name: "courseName", widget: "string" }
+          - { label: "Modules", name: "modules", widget: "list", fields: [{ label: "Module Title", name: "title", widget: "string" }] }
+
+      - name: "faq"
+        label: "Frequently Asked Questions"
+        file: "src/content/sections/faq.json"
+        fields:
+          - label: "Questions"
+            name: "questions"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+  # 🔹 **Events & Webinar Calendar**
+  - name: "events"
+    label: "Events & Dates"
+    file: "src/content/events.json"
     fields:
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Day", name: "day", widget: "string" }
-      - { label: "Time", name: "time", widget: "string" }
-      - { label: "Time Zone", name: "timeZone", widget: "string", default: "IST" }
-      - { label: "Total Spots", name: "totalSpots", widget: "number", default: 20 }
-      - { label: "Spots Left", name: "spotsLeft", widget: "number" }
-      - { label: "Payment Link", name: "paymentLink", widget: "string" }
-      - { label: "Filling Fast", name: "fillingFast", widget: "boolean", default: false }
-      - { label: "Session Full", name: "sessionFull", widget: "boolean", default: false }
+      - label: "Upcoming Events"
+        name: "upcoming"
+        widget: "list"
+        fields:
+          - { label: "Event Name", name: "event_name", widget: "string" }
+          - { label: "Date", name: "date", widget: "datetime" }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Registration Link", name: "registration_link", widget: "string" }
+
+  # 🔹 **Footer**
+  - name: "footer"
+    label: "Footer Settings"
+    file: "src/content/settings/footer.json"
+    fields:
+      - label: "Quick Links"
+        name: "quickLinks"
+        widget: "list"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - label: "Social Media"
+        name: "socialLinks"
+        widget: "list"
+        fields:
+          - { label: "Platform", name: "platform", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - label: "Contact Info"
+        name: "contact"
+        widget: "object"
+        fields:
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
