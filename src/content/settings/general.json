@@ -1,0 +1,15 @@
+{
+  "siteTitle": "Start Solo Blueprint - Build a Profitable Solo Business Without Burnout",
+  "siteDescription": "Join our exclusive webinar to discover how to build a profitable solo business without burning out. Learn proven strategies from successful entrepreneurs.",
+  "cohortStartDate": "June 15, 2025",
+  "currentCohort": 12,
+  "nextCohort": 13,
+  "nextCohortStartDate": "July 15, 2025",
+  "countdown": {
+    "enabled": true,
+    "message": "URGENT: Only {days} days left before registration closes!",
+    "buttonText": "Register Now",
+    "buttonUrl": "#webinar-dates",
+    "targetDate": "2025-06-10T23:59:59+05:30"
+  }
+}

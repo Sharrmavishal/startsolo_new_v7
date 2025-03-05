@@ -1,0 +1,39 @@
+{
+  "title": "Frequently Asked Questions",
+  "subtitle": "Everything you need to know about our cohorts, course, and community.",
+  "faqs": [
+    {
+      "question": "What's the difference between the Solo Accelerator Session and the Start Solo Blueprint course?",
+      "answer": "The Solo Accelerator Session is a 90-minute live session where you'll learn key strategies from our framework and get a taste of what's possible. The course is a comprehensive program with Live sessions lessons, workbooks, templates, and ongoing support to implement the complete Start Solo Blueprint. The next cohort starts on June 15, 2025."
+    },
+    {
+      "question": "Why is the Solo Accelerator Session only ₹99?",
+      "answer": "We charge a small fee to ensure that only serious solopreneurs attend. This helps us maintain a high-quality experience and ensures that attendees are committed to implementing what they learn."
+    },
+    {
+      "question": "When does the next cohort start and how long does it run?",
+      "answer": "The next cohort starts on June 15, 2025. The Solo Accelerator Session is 90 minutes, and if you choose to continue with the full course, it runs for 5 weeks with weekly LIVE modules and Q&A sessions."
+    },
+    {
+      "question": "How much does the full course cost?",
+      "answer": "The full Start Solo Blueprint (Level 1) course fee is dynamic and depends on the inclusions you choose, such as bootcamps, 1-on-1 coaching, bonus modules, and guest sessions. Session participants receive a special discount that can reach up to 70% at times."
+    },
+    {
+      "question": "What is the Start Solo WhatsApp Hub and how do I join?",
+      "answer": "The Start Solo Hub is our free WhatsApp community where you can connect with other solopreneurs, access exclusive resources, and get notified about upcoming cohorts and expert speaker sessions. You can join by clicking the 'Join Hub' button in the navigation or by scrolling to the WhatsApp Hub section. All session attendees and course students are automatically invited to join as well."
+    },
+    {
+      "question": "Will the Solo Accelerator Session be recorded?",
+      "answer": "Yes, all registrants will receive a replay of the session that will be available few hours after the live event. However, we strongly recommend attending live for the best experience and to participate in the Q&A session."
+    },
+    {
+      "question": "What happens after I complete the course?",
+      "answer": "After completing the course, you'll have lifetime access to the course materials and can revisit them anytime. You'll receive a course completion certificate and exclusive discounts to future courses, bootcamps, and guest speaker sessions. You'll also remain part of our alumni community where you can continue to network and learn from fellow solopreneurs."
+    }
+  ],
+  "contactOptions": {
+    "email": "hello@startsolo.in",
+    "whatsappText": "Ask in WhatsApp Hub",
+    "registerText": "Register for Session"
+  }
+}

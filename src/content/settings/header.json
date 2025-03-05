@@ -1,0 +1,45 @@
+{
+  "logoText": "Start Solo",
+  "navLinks": [
+    {
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "label": "About",
+      "url": "/about"
+    },
+    {
+      "label": "Accelerator Session",
+      "url": "#webinar-info"
+    },
+    {
+      "label": "Course",
+      "url": "#course"
+    },
+    {
+      "label": "Coach",
+      "url": "#instructor"
+    },
+    {
+      "label": "Success Stories",
+      "url": "#testimonials"
+    },
+    {
+      "label": "FAQ",
+      "url": "#faq"
+    },
+    {
+      "label": "Support",
+      "url": "/support"
+    }
+  ],
+  "ctaButton": {
+    "text": "Reserve Your Spot",
+    "url": "#webinar-dates",
+    "trackingId": "header-cta"
+  },
+  "mobileMenu": {
+    "ctaText": "Reserve Your Spot"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "title": "Choose Your Session Date",
+  "subtitle": "Select a date and time that works best for your schedule",
+  "tag": "RESERVE YOUR SPOT",
+  "dates": [
+    {
+      "id": "june-15",
+      "date": "June 15, 2025",
+      "day": "Sunday",
+      "time": "2:00 PM",
+      "timeZone": "IST",
+      "spotsLeft": 7,
+      "paymentLink": "https://checkout.example.com/webinar-june-15",
+      "fillingFast": true
+    },
+    {
+      "id": "june-18",
+      "date": "June 18, 2025",
+      "day": "Wednesday",
+      "time": "7:00 PM",
+      "timeZone": "IST",
+      "spotsLeft": 13,
+      "paymentLink": "https://checkout.example.com/webinar-june-18",
+      "fillingFast": false
+    },
+    {
+      "id": "june-20",
+      "date": "June 20, 2025",
+      "day": "Friday",
+      "time": "12:00 PM",
+      "timeZone": "IST",
+      "spotsLeft": 15,
+      "paymentLink": "https://checkout.example.com/webinar-june-20",
+      "fillingFast": false
+    },
+    {
+      "id": "june-22",
+      "date": "June 22, 2025",
+      "day": "Sunday",
+      "time": "3:00 PM",
+      "timeZone": "IST",
+      "spotsLeft": 11,
+      "paymentLink": "https://checkout.example.com/webinar-june-22",
+      "fillingFast": false
+    },
+    {
+      "id": "june-25",
+      "date": "June 25, 2025",
+      "day": "Wednesday",
+      "time": "6:00 PM",
+      "timeZone": "IST",
+      "spotsLeft": 18,
+      "paymentLink": "https://checkout.example.com/webinar-june-25",
+      "fillingFast": false
+    }
+  ],
+  "registrationFee": "₹99",
+  "originalPrice": "₹999",
+  "urgencyMessage": "HURRY! Next cohort starts June 15, 2025. These sessions typically fill up 7-10 days before the start date.",
+  "cantMakeIt": {
+    "title": "Can't Make These Dates?",
+    "description": "Join our WhatsApp Hub to receive notifications about new session dates. You'll also gain access to free resources, exclusives from guest speakers and community support.",
+    "buttonText": "Join WhatsApp Hub"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "title": "Real Results from Real Solopreneurs",
+  "subtitle": "Discover success stories from real professionals and entrepreneurs who have transformed their businesses through our workshops and trainings",
+  "featured": [
+    {
+      "name": "Ananya Desai",
+      "role": "UX Designer & Brand Consultant",
+      "image": "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
+      "quote": "The strategies I learned from the Solo Accelerator Session helped me double my client base in just 60 days. The framework is so clear and actionable - it's exactly what I needed!",
+      "stars": 5,
+      "videoId": null
+    },
+    {
+      "name": "Rahul Sharma",
+      "role": "Digital Marketing Consultant",
+      "image": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
+      "quote": "I was skeptical about a ₹99 session, but the value I received was incredible. I implemented just one strategy and landed a ₹75,000 client within a week!",
+      "stars": 5,
+      "videoId": null
+    },
+    {
+      "name": "Priya Patel",
+      "role": "Wellness Coach & Nutritionist",
+      "image": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80",
+      "quote": "This session gave me the clarity and confidence I needed to finally launch my coaching business. The step-by-step approach eliminated all the guesswork.",
+      "stars": 5,
+      "videoId": null
+    }
+  ],
+  "quotes": [
+    {
+      "name": "Vikram Singh",
+      "role": "Freelance Developer",
+      "quote": "The Solo Blueprint framework helped me transition from hourly billing to value-based pricing. My income increased by 70% in just 2 months.",
+      "image": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+    },
+    {
+      "name": "Ananya Desai",
+      "role": "Content Strategist",
+      "quote": "I went from constantly chasing clients to having a waitlist. The positioning strategy was a game-changer for my business.",
+      "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+    },
+    {
+      "name": "Karthik Menon",
+      "role": "Financial Advisor",
+      "quote": "The client acquisition system alone was worth 100x the investment. I've never had so many qualified leads coming in consistently.",
+      "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+    },
+    {
+      "name": "Meera Joshi",
+      "role": "Interior Designer",
+      "quote": "I was working 70+ hours a week and burning out. Now I work 30 hours and make more money. The systems and processes changed everything.",
+      "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+    },
+    {
+      "name": "Arjun Nair",
+      "role": "Fitness Coach",
+      "quote": "The blueprint helped me scale from 1-on-1 coaching to a group program that serves 5x more clients with less of my time.",
+      "image": "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+    }
+  ]
+}
