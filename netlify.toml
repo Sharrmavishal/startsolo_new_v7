@@ -1,32 +1,29 @@
-# Netlify build settings
 [build]
-  command = "npm run build"   # Ensure this runs your correct build process
-  publish = "public"          # Change this to "dist" if your files are in dist/
+  command = "npm run build"
+  publish = "dist"
 
-# Redirects
+# Force HTTPS
 [[redirects]]
   from = "http://*"
   to = "https://:splat"
   status = 301
   force = true
 
+# Redirect www to non-www
 [[redirects]]
-  from = "https://www.startsolo.in/*"
-  to = "https://startsolo.in/:splat"
+  from = "https://www.bucolic-choux-59ccaa.netlify.app/*"
+  to = "https://bucolic-choux-59ccaa.netlify.app/:splat"
   status = 301
   force = true
 
-[[redirects]]
-  from = "/admin"
-  to = "/admin/index.html"
-  status = 200
-
+# Redirect all requests to index.html for SPA routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true
 
-# Security headers
+# Set up headers for security
 [[headers]]
   for = "/*"
   [headers.values]
@@ -34,15 +31,19 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:; object-src 'none'; upgrade-insecure-requests;"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = """
+      default-src 'self' https://api.netlify.com https://identity.netlify.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com;
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: https:;
+      font-src 'self';
+      connect-src 'self' https://api.netlify.com https://identity.netlify.com;
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self';
+    """
 
-# Ensure API calls work
-[[headers]]
-  for = "/api/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-
-# Environment variables
+# Custom domain configuration
 [build.environment]
-  NETLIFY_SITE_URL = "https://startsolo.in"
+  NETLIFY_SITE_URL = "https://bucolic-choux-59ccaa.netlify.app"
