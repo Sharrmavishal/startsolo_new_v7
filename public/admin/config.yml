@@ -23,15 +23,17 @@ collections:
         label: "General Settings"
         file: "content/settings/general.json"
         fields:
-          - { label: "Site Title", name: "siteTitle", widget: "string" }
-          - { label: "Site Description", name: "siteDescription", widget: "text" }
-          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Site Title", name: "siteTitle", widget: "string", hint: "Max 60 characters" }
+          - { label: "Site Description", name: "siteDescription", widget: "text", hint: "Max 160 characters" }
+          - { label: "Logo", name: "logo", widget: "image", hint: "200x50px, max 100KB, SVG preferred" }
       - name: "seo"
         label: "SEO Settings"
         file: "content/settings/seo.json"
         fields:
           - { label: "Meta Title", name: "metaTitle", widget: "string" }
-          - { label: "Meta Description", name: "metaDescription", widget: "text" }
+          - { label: "Meta Description", name: "metaDescription", widget: "text", hint: "Max 160 characters" }
+          - { label: "Open Graph Image", name: "ogImage", widget: "image", hint: "1200x630px, max 300KB" }
+          - { label: "Schema Markup", name: "schemaMarkup", widget: "text" }
       - name: "branding"
         label: "Branding & Theme"
         file: "content/settings/branding.json"
@@ -45,6 +47,8 @@ collections:
           - { label: "WhatsApp CTA Text", name: "whatsappText", widget: "string" }
           - { label: "WhatsApp Link", name: "whatsappUrl", widget: "string" }
           - { label: "WhatsApp Sticky CTA Enabled", name: "whatsappSticky", widget: "boolean", default: true }
+          - { label: "Floating Registration CTA", name: "floatingCTA", widget: "boolean", default: true }
+          - { label: "Popup Notifications", name: "popupNotifications", widget: "list", fields: [{ label: "Message", name: "message", widget: "string" }, { label: "Trigger Event", name: "trigger", widget: "string" }] }
 
   - name: "navigation"
     label: "Header & Footer"
@@ -57,61 +61,44 @@ collections:
             name: "menu"
             widget: "list"
             fields:
-              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Label", name: "label", widget: "string", hint: "Max 20 characters" }
               - { label: "URL", name: "url", widget: "string" }
       - name: "footer"
         label: "Footer"
         file: "content/settings/footer.json"
         fields:
           - { label: "Quick Links", name: "quickLinks", widget: "list", fields: [{ label: "Label", name: "label", widget: "string" }, { label: "URL", name: "url", widget: "string" }] }
-          - { label: "Social Media", name: "social", widget: "object", fields: [{ label: "Instagram", name: "instagram", widget: "string" }, { label: "LinkedIn", name: "linkedin", widget: "string" }] }
-          - { label: "Logos & Partnerships", name: "logos", widget: "list", fields: [{ label: "Image", name: "image", widget: "image" }, { label: "Alt Text", name: "alt", widget: "string" }] }
+          - { label: "Social Media", name: "social", widget: "object", fields: [{ label: "Instagram", name: "instagram", widget: "string" }, { label: "LinkedIn", name: "linkedin", widget: "string" }, { label: "Twitter", name: "twitter", widget: "string" }, { label: "Facebook", name: "facebook", widget: "string" }, { label: "YouTube", name: "youtube", widget: "string" }] }
+          - { label: "Newsletter Signup", name: "newsletter", widget: "string" }
 
   - name: "sections"
     label: "Content Sections"
     files:
-      - name: "hero"
-        label: "Hero Section"
-        file: "content/sections/hero.json"
+      - name: "journey"
+        label: "Journey/Steps Section"
+        file: "content/sections/journey.json"
         fields:
-          - { label: "Main Heading", name: "heading", widget: "string" }
-          - { label: "Subheading", name: "subheading", widget: "string" }
-          - { label: "Video ID", name: "videoId", widget: "string" }
-      - name: "course_overview"
-        label: "Course Overview"
-        file: "content/sections/course_overview.json"
+          - { label: "Step 1 Description", name: "step1", widget: "string" }
+          - { label: "Step 2 Description", name: "step2", widget: "string" }
+          - { label: "CTA Text", name: "cta", widget: "string" }
+      - name: "whatsapp_hub"
+        label: "WhatsApp Hub Section"
+        file: "content/sections/whatsapp_hub.json"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text" }
-          - { label: "Duration", name: "duration", widget: "string" }
-      - name: "curriculum"
-        label: "Course Curriculum"
-        file: "content/sections/curriculum.json"
+          - { label: "Benefits", name: "benefits", widget: "list", fields: [{ label: "Benefit", name: "benefit", widget: "string" }] }
+          - { label: "Join Button Text", name: "buttonText", widget: "string" }
+          - { label: "Join Button Link", name: "buttonLink", widget: "string" }
+      - name: "guarantee"
+        label: "Guarantee Section"
+        file: "content/sections/guarantee.json"
         fields:
-          - { label: "Modules", name: "modules", widget: "list", fields: [{ label: "Week", name: "week", widget: "string" }, { label: "Title", name: "title", widget: "string" }, { label: "Lessons", name: "lessons", widget: "list", fields: [{ label: "Lesson Title", name: "lesson", widget: "string" }, { label: "Description", name: "description", widget: "text" }] }] }
-      - name: "value_adds"
-        label: "Value Adds"
-        file: "content/sections/value_adds.json"
-        fields:
-          - { label: "Items", name: "items", widget: "list", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" }] }
-      - name: "faq"
-        label: "Frequently Asked Questions"
-        file: "content/sections/faq.json"
-        fields:
-          - { label: "Questions", name: "questions", widget: "list", fields: [{ label: "Question", name: "question", widget: "string" }, { label: "Answer", name: "answer", widget: "text" }] }
-      - name: "testimonials"
-        label: "Success Stories & Testimonials"
-        file: "content/sections/testimonials.json"
-        fields:
-          - { label: "Testimonials", name: "testimonials", widget: "list", fields: [{ label: "Name", name: "name", widget: "string" }, { label: "Title", name: "title", widget: "string" }, { label: "Review", name: "review", widget: "text" }, { label: "Image", name: "image", widget: "image" }, { label: "Rating", name: "rating", widget: "number", default: 5 }] }
-      - name: "cta"
-        label: "Final CTA"
-        file: "content/sections/cta.json"
-        fields:
-          - { label: "CTA Text", name: "ctaText", widget: "string" }
-          - { label: "CTA Link", name: "ctaUrl", widget: "string" }
-      - name: "trainers"
-        label: "Trainers & Expert Speakers"
-        file: "content/sections/trainers.json"
-        fields:
-          - { label: "Speakers", name: "speakers", widget: "list", fields: [{ label: "Name", name: "name", widget: "string" }, { label: "Title", name: "title", widget: "string" }, { label: "Bio", name: "bio", widget: "text" }, { label: "Image", name: "image", widget: "image" }, { label: "Speaking Topic", name: "topic", widget: "string" }] }
+          - { label: "Guarantee Details", name: "details", widget: "text" }
+          - { label: "Terms & Conditions", name: "terms", widget: "text" }
+          - { label: "Trust Indicators", name: "indicators", widget: "list", fields: [{ label: "Indicator", name: "indicator", widget: "string" }] }
+  
+  - name: "popup_notifications"
+    label: "Popup/Notification System"
+    file: "content/settings/popups.json"
+    fields:
+      - { label: "Notification Messages", name: "messages", widget: "list", fields: [{ label: "Message", name: "message", widget: "string" }, { label: "Trigger", name: "trigger", widget: "string" }] }
