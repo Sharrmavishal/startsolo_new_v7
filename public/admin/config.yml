@@ -49,6 +49,13 @@ collections:
           - { label: "WhatsApp Sticky CTA Enabled", name: "whatsappSticky", widget: "boolean", default: true }
           - { label: "Floating Registration CTA", name: "floatingCTA", widget: "boolean", default: true }
           - { label: "Popup Notifications", name: "popupNotifications", widget: "list", fields: [{ label: "Message", name: "message", widget: "string" }, { label: "Trigger Event", name: "trigger", widget: "string" }] }
+      - name: "countdown"
+        label: "Countdown Timer"
+        file: "content/settings/countdown.json"
+        fields:
+          - { label: "Timer Enabled", name: "enabled", widget: "boolean", default: true, hint: "Enable or disable the countdown timer" }
+          - { label: "Message", name: "message", widget: "string", hint: "Max 60 characters. Example: 'Only a few days left before registration closes!'" }
+          - { label: "End Date", name: "endDate", widget: "datetime", hint: "Format: ISO 8601 (e.g., 2025-06-10T23:59:59+05:30)" }
 
   - name: "navigation"
     label: "Header & Footer"
@@ -62,7 +69,8 @@ collections:
             widget: "list"
             fields:
               - { label: "Label", name: "label", widget: "string", hint: "Max 20 characters" }
-              - { label: "URL", name: "url", widget: "string" }
+              - { label: "URL", name: "url", widget: "string", hint: "Use #section-id for smooth scrolling to landing page sections or full URL for external links." }
+              - { label: "Submenu", name: "submenu", widget: "list", required: false, fields: [{ label: "Label", name: "label", widget: "string" }, { label: "URL", name: "url", widget: "string" }] }
       - name: "footer"
         label: "Footer"
         file: "content/settings/footer.json"
@@ -71,32 +79,17 @@ collections:
           - { label: "Social Media", name: "social", widget: "object", fields: [{ label: "Instagram", name: "instagram", widget: "string" }, { label: "LinkedIn", name: "linkedin", widget: "string" }, { label: "Twitter", name: "twitter", widget: "string" }, { label: "Facebook", name: "facebook", widget: "string" }, { label: "YouTube", name: "youtube", widget: "string" }] }
           - { label: "Newsletter Signup", name: "newsletter", widget: "string" }
 
-  - name: "sections"
-    label: "Content Sections"
-    files:
-      - name: "journey"
-        label: "Journey/Steps Section"
-        file: "content/sections/journey.json"
-        fields:
-          - { label: "Step 1 Description", name: "step1", widget: "string" }
-          - { label: "Step 2 Description", name: "step2", widget: "string" }
-          - { label: "CTA Text", name: "cta", widget: "string" }
-      - name: "whatsapp_hub"
-        label: "WhatsApp Hub Section"
-        file: "content/sections/whatsapp_hub.json"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Benefits", name: "benefits", widget: "list", fields: [{ label: "Benefit", name: "benefit", widget: "string" }] }
-          - { label: "Join Button Text", name: "buttonText", widget: "string" }
-          - { label: "Join Button Link", name: "buttonLink", widget: "string" }
-      - name: "guarantee"
-        label: "Guarantee Section"
-        file: "content/sections/guarantee.json"
-        fields:
-          - { label: "Guarantee Details", name: "details", widget: "text" }
-          - { label: "Terms & Conditions", name: "terms", widget: "text" }
-          - { label: "Trust Indicators", name: "indicators", widget: "list", fields: [{ label: "Indicator", name: "indicator", widget: "string" }] }
-  
+  - name: "pages"
+    label: "Dynamic Pages"
+    folder: "content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "SEO Meta Description", name: "metaDescription", widget: "text" }
+      - { label: "URL Slug", name: "slug", widget: "string", hint: "Set the page URL" }
+      - { label: "Sections", name: "sections", widget: "list", fields: [{ label: "Type", name: "type", widget: "select", options: ["hero", "testimonials", "cta", "faq", "features", "pricing", "gallery"] }, { label: "Content", name: "content", widget: "markdown" }] }
+
   - name: "popup_notifications"
     label: "Popup/Notification System"
     file: "content/settings/popups.json"
