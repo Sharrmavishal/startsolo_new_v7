@@ -92,6 +92,7 @@ collections:
 
   - name: "popup_notifications"
     label: "Popup/Notification System"
-    file: "content/settings/popups.json"
+    folder: "content/settings/popups"
+    create: true
     fields:
       - { label: "Notification Messages", name: "messages", widget: "list", fields: [{ label: "Message", name: "message", widget: "string" }, { label: "Trigger", name: "trigger", widget: "string" }] }
