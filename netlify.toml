@@ -40,3 +40,9 @@
 # Environment variables (Custom domain settings)
 [build.environment]
   NETLIFY_SITE_URL = "https://startsolo.in"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "connect-src 'self' blob: https://api.netlify.com https://unpkg.com; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline';"
+
