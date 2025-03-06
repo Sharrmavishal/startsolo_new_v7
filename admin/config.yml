@@ -1,1 +1,74 @@
-deleted files and relocated
+backend:
+  name: github
+  repo: Sharrmavishal/startsolo_new_v7
+  branch: rollbackbranch
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: '[skip ci] Upload "{{path}}"'
+    deleteMedia: '[skip ci] Delete "{{path}}"'
+
+# This line should match your site URL
+site_url: https://bucolic-choux-59ccaa.netlify.app
+display_url: https://bucolic-choux-59ccaa.netlify.app
+
+# Media files will be stored in the repo under public/uploads
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Enable local backend for development
+local_backend: true
+
+collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - label: "Countdown Timer"
+        name: "countdown_timer"
+        file: "content/homepage/countdown.md"
+        fields:
+          - { label: "Countdown Text", name: "countdown_text", widget: "string", default: "URGENT: Only a few days left before registration closes!" }
+          - { label: "Countdown Date", name: "countdown_date", widget: "datetime" }
+          - { label: "Enable Countdown", name: "enabled", widget: "boolean", default: true }
+
+      - label: "Hero Section"
+        name: "hero"
+        file: "content/homepage/hero.md"
+        fields:
+          - { label: "Highlight Text", name: "highlight", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "markdown" }
+          - { label: "Video ID", name: "videoId", widget: "string", required: false, hint: "YouTube video ID for preview" }
+          - { label: "Preview Image", name: "previewImage", widget: "image", hint: "Shown when video is not set" }
+          - label: "Primary Button"
+            name: "primaryButton"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Secondary Button"
+            name: "secondaryButton"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Key Points"
+            name: "keyPoints"
+            widget: "list"
+            field: { label: "Point", name: "point", widget: "string" }
+
+      - label: "Training & Workshops"
+        name: "brand_logos"
+        file: "content/homepage/brand_logos.md"
+        fields:
+          - label: "Brand Logos"
+            name: "logos"
+            widget: "list"
+            fields:
+              - { label: "Logo Image", name: "logo", widget: "image" }
+              - { label: "Company Name", name: "name", widget: "string" }
+          - { label: "Bottom Card Title", name: "cardTitle", widget: "string" }
+          - { label: "Bottom Card Description", name: "cardDescription", widget: "markdown" }
+
+      - la
