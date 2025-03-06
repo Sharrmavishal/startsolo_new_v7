@@ -16,9 +16,8 @@ display_url: https://startsolo.in
 local_backend: true
 
 collections:
-  # 🌍 GLOBAL SETTINGS
   - name: "settings"
-    label: "Site Settings"
+    label: "Global Settings"
     files:
       - name: "general"
         label: "General Settings"
@@ -28,7 +27,7 @@ collections:
           - { label: "Site Description", name: "siteDescription", widget: "text" }
           - { label: "Logo", name: "logo", widget: "image" }
       - name: "seo"
-        label: "SEO & Metadata"
+        label: "SEO Settings"
         file: "content/settings/seo.json"
         fields:
           - { label: "Meta Title", name: "metaTitle", widget: "string" }
@@ -40,13 +39,13 @@ collections:
           - { label: "Primary Color", name: "primaryColor", widget: "color" }
           - { label: "Font", name: "font", widget: "string" }
       - name: "integrations"
-        label: "WhatsApp & Third-Party"
+        label: "Third-Party Integrations"
         file: "content/settings/integrations.json"
         fields:
           - { label: "WhatsApp CTA Text", name: "whatsappText", widget: "string" }
           - { label: "WhatsApp Link", name: "whatsappUrl", widget: "string" }
+          - { label: "WhatsApp Sticky CTA Enabled", name: "whatsappSticky", widget: "boolean", default: true }
 
-  # 📌 HEADER & FOOTER
   - name: "navigation"
     label: "Header & Footer"
     files:
@@ -64,10 +63,10 @@ collections:
         label: "Footer"
         file: "content/settings/footer.json"
         fields:
-          - { label: "Quick Links", name: "quickLinks", widget: "list", fields: [{label: "Label", name: "label", widget: "string"}, {label: "URL", name: "url", widget: "string"}] }
-          - { label: "Social Media", name: "social", widget: "object", fields: [{label: "Instagram", name: "instagram", widget: "string"}, {label: "LinkedIn", name: "linkedin", widget: "string"}] }
+          - { label: "Quick Links", name: "quickLinks", widget: "list", fields: [{ label: "Label", name: "label", widget: "string" }, { label: "URL", name: "url", widget: "string" }] }
+          - { label: "Social Media", name: "social", widget: "object", fields: [{ label: "Instagram", name: "instagram", widget: "string" }, { label: "LinkedIn", name: "linkedin", widget: "string" }] }
+          - { label: "Logos & Partnerships", name: "logos", widget: "list", fields: [{ label: "Image", name: "image", widget: "image" }, { label: "Alt Text", name: "alt", widget: "string" }] }
 
-  # 🎯 MAIN SECTIONS
   - name: "sections"
     label: "Content Sections"
     files:
@@ -78,66 +77,41 @@ collections:
           - { label: "Main Heading", name: "heading", widget: "string" }
           - { label: "Subheading", name: "subheading", widget: "string" }
           - { label: "Video ID", name: "videoId", widget: "string" }
-      - name: "featuredIn"
-        label: "Trainings & Workshops"
-        file: "content/sections/featuredIn.json"
+      - name: "course_overview"
+        label: "Course Overview"
+        file: "content/sections/course_overview.json"
         fields:
-          - { label: "Brand Logos", name: "logos", widget: "list", fields: [{label: "Image", name: "image", widget: "image"}] }
-      - name: "webinarInfo"
-        label: "Webinar Information"
-        file: "content/sections/webinarInfo.json"
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Duration", name: "duration", widget: "string" }
+      - name: "curriculum"
+        label: "Course Curriculum"
+        file: "content/sections/curriculum.json"
         fields:
-          - { label: "Session Details", name: "details", widget: "markdown" }
-      - name: "webinarDates"
-        label: "Webinar Dates"
-        file: "content/sections/webinarDates.json"
+          - { label: "Modules", name: "modules", widget: "list", fields: [{ label: "Week", name: "week", widget: "string" }, { label: "Title", name: "title", widget: "string" }, { label: "Lessons", name: "lessons", widget: "list", fields: [{ label: "Lesson Title", name: "lesson", widget: "string" }, { label: "Description", name: "description", widget: "text" }] }] }
+      - name: "value_adds"
+        label: "Value Adds"
+        file: "content/sections/value_adds.json"
         fields:
-          - { label: "Available Sessions", name: "dates", widget: "list", fields: [{label: "Date", name: "date", widget: "datetime"}, {label: "Time", name: "time", widget: "string"}] }
-      - name: "alternatives"
-        label: "Alternative Webinar Dates"
-        file: "content/sections/webinar/alternatives.json"
+          - { label: "Items", name: "items", widget: "list", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" }] }
+      - name: "faq"
+        label: "Frequently Asked Questions"
+        file: "content/sections/faq.json"
         fields:
-          - { label: "Alternative Options", name: "options", widget: "list", fields: [{label: "Message", name: "message", widget: "string"}, {label: "URL", name: "url", widget: "string"}] }
+          - { label: "Questions", name: "questions", widget: "list", fields: [{ label: "Question", name: "question", widget: "string" }, { label: "Answer", name: "answer", widget: "text" }] }
       - name: "testimonials"
-        label: "Success Stories"
+        label: "Success Stories & Testimonials"
         file: "content/sections/testimonials.json"
         fields:
-          - { label: "Quotes", name: "quotes", widget: "list", fields: [{label: "Quote", name: "quote", widget: "text"}, {label: "Author", name: "author", widget: "string"}] }
+          - { label: "Testimonials", name: "testimonials", widget: "list", fields: [{ label: "Name", name: "name", widget: "string" }, { label: "Title", name: "title", widget: "string" }, { label: "Review", name: "review", widget: "text" }, { label: "Image", name: "image", widget: "image" }, { label: "Rating", name: "rating", widget: "number", default: 5 }] }
       - name: "cta"
         label: "Final CTA"
         file: "content/sections/cta.json"
         fields:
           - { label: "CTA Text", name: "ctaText", widget: "string" }
           - { label: "CTA Link", name: "ctaUrl", widget: "string" }
-
-  # 📚 BLOG
-  - name: "blog"
-    label: "Blog Posts"
-    folder: "content/blog/posts"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-  - name: "blogCategories"
-    label: "Blog Categories"
-    file: "content/blog/categories.json"
-    fields:
-      - { label: "Categories", name: "categories", widget: "list", fields: [{label: "Name", name: "name", widget: "string"}] }
-  - name: "blogAuthors"
-    label: "Blog Authors"
-    file: "content/blog/authors.json"
-    fields:
-      - { label: "Authors", name: "authors", widget: "list", fields: [{label: "Name", name: "name", widget: "string"}, {label: "Bio", name: "bio", widget: "text"}] } 
-
-  # 📄 STATIC PAGES
-  - name: "pages"
-    label: "Static Pages"
-    folder: "content/pages"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - name: "trainers"
+        label: "Trainers & Expert Speakers"
+        file: "content/sections/trainers.json"
+        fields:
+          - { label: "Speakers", name: "speakers", widget: "list", fields: [{ label: "Name", name: "name", widget: "string" }, { label: "Title", name: "title", widget: "string" }, { label: "Bio", name: "bio", widget: "text" }, { label: "Image", name: "image", widget: "image" }, { label: "Speaking Topic", name: "topic", widget: "string" }] }
