@@ -1,32 +1,29 @@
-# Build settings
+# Netlify build settings
 [build]
-  command = "npm run build"
-  publish = "public"
+  command = "npm run build"   # Ensure this runs your correct build process
+  publish = "public"          # Change this to "dist" if your files are in dist/
 
-# Ensure HTTPS for all requests
+# Redirects
 [[redirects]]
   from = "http://*"
   to = "https://:splat"
   status = 301
   force = true
 
-# Redirect www to non-www version
 [[redirects]]
   from = "https://www.startsolo.in/*"
   to = "https://startsolo.in/:splat"
   status = 301
   force = true
 
-# Ensure Netlify CMS /admin loads correctly
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"
   status = 200
 
-# Redirect uploaded media to correct folder
 [[redirects]]
-  from = "/uploads/*"
-  to = "/static/uploads/:splat"
+  from = "/*"
+  to = "/index.html"
   status = 200
 
 # Security headers
@@ -40,12 +37,12 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:; object-src 'none'; upgrade-insecure-requests;"
 
-# Allow Netlify CMS scripts and media uploads
+# Ensure API calls work
 [[headers]]
-  for = "/admin/*"
+  for = "/api/*"
   [headers.values]
-    Content-Security-Policy = "connect-src 'self' blob: https://api.netlify.com https://unpkg.com; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https:;"
+    Access-Control-Allow-Origin = "*"
 
-# Environment variables (Custom domain settings)
+# Environment variables
 [build.environment]
   NETLIFY_SITE_URL = "https://startsolo.in"
