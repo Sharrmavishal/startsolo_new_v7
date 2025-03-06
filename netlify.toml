@@ -1,29 +1,25 @@
 [build]
   command = "npm run build"
   publish = "dist"
-
-# Force HTTPS
+  
 [[redirects]]
   from = "http://*"
   to = "https://:splat"
   status = 301
   force = true
 
-# Redirect www to non-www
 [[redirects]]
   from = "https://www.bucolic-choux-59ccaa.netlify.app/*"
   to = "https://bucolic-choux-59ccaa.netlify.app/:splat"
   status = 301
   force = true
 
-# Redirect all requests to index.html for SPA routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
   force = true
 
-# Set up headers for security
 [[headers]]
   for = "/*"
   [headers.values]
@@ -44,6 +40,5 @@
       form-action 'self';
     """
 
-# Custom domain configuration
 [build.environment]
-  NETLIFY_SITE_URL = "https://bucolic-choux-59ccaa.netlify.app"
+  NODE_VERSION = "18"
