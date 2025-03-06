@@ -8,7 +8,7 @@ backend:
     uploadMedia: "[skip ci] Upload {{path}}"
     deleteMedia: "[skip ci] Delete {{path}}"
 
-media_folder: "public/uploads"
+media_folder: "static/uploads"
 public_folder: "/uploads"
 
 site_url: https://startsolo.in
@@ -25,7 +25,7 @@ collections:
         fields:
           - { label: "Site Title", name: "siteTitle", widget: "string", hint: "Max 60 characters. Example: 'Start Solo'" }
           - { label: "Site Description", name: "siteDescription", widget: "text", hint: "Max 160 characters. Example: 'Your ultimate solopreneur business launchpad'" }
-          - { label: "Logo", name: "logo", widget: "image", hint: "200x50px, max 100KB, SVG preferred" }
+          - { label: "Logo", name: "logo", widget: "image", media_library: { config: { multiple: false } }, hint: "200x50px, max 100KB, SVG preferred" }
       - name: "seo"
         label: "SEO Settings"
         file: "content/settings/seo.json"
@@ -87,4 +87,5 @@ collections:
     folder: "content/settings/popups"
     create: true
     fields:
+      - { label: "Title", name: "title", widget: "string", hint: "Example: 'Limited Spots Alert'" }
       - { label: "Notification Messages", name: "messages", widget: "list", fields: [{ label: "Message", name: "message", widget: "string", hint: "Example: 'Only 3 spots left for the next session!'" }, { label: "Trigger", name: "trigger", widget: "string", hint: "When should this popup appear?" }] }
