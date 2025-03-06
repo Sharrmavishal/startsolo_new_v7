@@ -3,50 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Start Solo Blueprint - Content Manager</title>
-    
-    <!-- Include the Netlify Identity Widget -->
+    <title>Content Manager</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    
-    <style>
-      /* Custom styles for the CMS */
-      :root {
-        --primary-color: #e57341;
-        --secondary-color: #0097b2;
-      }
-      
-      /* Override Netlify CMS styles */
-      .css-1hvrgvd-CollectionTopContainer-card-cardTop {
-        background-color: var(--primary-color) !important;
-      }
-      
-      .css-1j2jf8a-StyledDropdownButton-button-default-gray-button-gray {
-        background-color: var(--secondary-color) !important;
-        color: white !important;
-      }
-      
-      /* Custom sidebar branding */
-      .css-v758k9-AppHeaderContent {
-        background-color: #3e1311 !important;
-      }
-      
-      .css-12b66la-AppHeaderContent-button-buttonActive-buttonActive-buttonActive-buttonActive-buttonActive-buttonActive-buttonActive {
-        background-color: var(--primary-color) !important;
-      }
-      
-      /* Help text styling */
-      .css-1gj57a0-ControlHint-hint {
-        color: #666 !important;
-        font-style: italic !important;
-        margin-top: 4px !important;
-      }
-    </style>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Netlify CMS -->
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.1.3/dist/decap-cms.js"></script>
     <script>
-      // Initialize the Netlify Identity Widget
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
           if (!user) {
@@ -56,28 +18,6 @@
           }
         });
       }
-      
-      // Custom preview templates
-      CMS.registerPreviewStyle("/admin/preview.css");
-      
-      // Custom widgets
-      CMS.registerWidget(
-        'color',
-        window.NetlifyCmsWidgetColorpicker.Control,
-        window.NetlifyCmsWidgetColorpicker.Preview
-      );
-      
-      // Add help text for image uploads
-      CMS.registerEventListener({
-        name: 'preSave',
-        handler: function(data) {
-          console.log('Content being saved:', data);
-          return data;
-        }
-      });
     </script>
-    
-    <!-- Load additional widgets -->
-    <script src="https://unpkg.com/netlify-cms-widget-colorpicker@^0.1.0/dist/netlify-cms-widget-colorpicker.min.js"></script>
   </body>
 </html>
