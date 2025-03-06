@@ -19,58 +19,125 @@ collections:
   # 🌍 GLOBAL SETTINGS
   - name: "settings"
     label: "Site Settings"
-    folder: "content/settings"
-    create: false
-    fields:
-      - { label: "Site Title", name: "siteTitle", widget: "string" }
-      - { label: "Site Description", name: "siteDescription", widget: "text" }
-      - { label: "Logo", name: "logo", widget: "image" }
-      - { label: "Primary Color", name: "primaryColor", widget: "color" }
-      - { label: "Font Family", name: "font", widget: "string" }
-      - { label: "Google Analytics ID", name: "gaId", widget: "string" }
-      - { label: "WhatsApp Button Text", name: "whatsappText", widget: "string" }
-      - { label: "WhatsApp URL", name: "whatsappUrl", widget: "string" }
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "content/settings/general.json"
+        fields:
+          - { label: "Site Title", name: "siteTitle", widget: "string" }
+          - { label: "Site Description", name: "siteDescription", widget: "text" }
+          - { label: "Logo", name: "logo", widget: "image" }
+      - name: "seo"
+        label: "SEO & Metadata"
+        file: "content/settings/seo.json"
+        fields:
+          - { label: "Meta Title", name: "metaTitle", widget: "string" }
+          - { label: "Meta Description", name: "metaDescription", widget: "text" }
+      - name: "branding"
+        label: "Branding & Theme"
+        file: "content/settings/branding.json"
+        fields:
+          - { label: "Primary Color", name: "primaryColor", widget: "color" }
+          - { label: "Font", name: "font", widget: "string" }
+      - name: "integrations"
+        label: "WhatsApp & Third-Party"
+        file: "content/settings/integrations.json"
+        fields:
+          - { label: "WhatsApp CTA Text", name: "whatsappText", widget: "string" }
+          - { label: "WhatsApp Link", name: "whatsappUrl", widget: "string" }
 
   # 📌 HEADER & FOOTER
   - name: "navigation"
     label: "Header & Footer"
-    folder: "content/settings"
-    create: false
-    fields:
-      - { label: "Menu Items", name: "menu", widget: "list", fields: [{ label: "Label", name: "label", widget: "string" }, { label: "URL", name: "url", widget: "string" }] }
-      - { label: "Quick Links", name: "quickLinks", widget: "list", fields: [{ label: "Label", name: "label", widget: "string" }, { label: "URL", name: "url", widget: "string" }] }
-      - { label: "Social Media", name: "social", widget: "object", fields: [{ label: "Instagram", name: "instagram", widget: "string" }, { label: "LinkedIn", name: "linkedin", widget: "string" }] }
+    files:
+      - name: "header"
+        label: "Header"
+        file: "content/settings/header.json"
+        fields:
+          - label: "Menu Items"
+            name: "menu"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+      - name: "footer"
+        label: "Footer"
+        file: "content/settings/footer.json"
+        fields:
+          - { label: "Quick Links", name: "quickLinks", widget: "list", fields: [{label: "Label", name: "label", widget: "string"}, {label: "URL", name: "url", widget: "string"}] }
+          - { label: "Social Media", name: "social", widget: "object", fields: [{label: "Instagram", name: "instagram", widget: "string"}, {label: "LinkedIn", name: "linkedin", widget: "string"}] }
 
-  # 🎯 CONTENT SECTIONS
+  # 🎯 MAIN SECTIONS
   - name: "sections"
     label: "Content Sections"
-    folder: "content/sections"
-    create: false
-    fields:
-      - { label: "Hero Heading", name: "heading", widget: "string" }
-      - { label: "Hero Video ID", name: "videoId", widget: "string" }
-      - { label: "Brand Logos", name: "logos", widget: "list", fields: [{ label: "Image", name: "image", widget: "image" }] }
-      - { label: "Webinar Details", name: "details", widget: "markdown" }
-      - { label: "Available Dates", name: "dates", widget: "list", fields: [{ label: "Date", name: "date", widget: "datetime" }, { label: "Time", name: "time", widget: "string" }] }
-      - { label: "Testimonials", name: "quotes", widget: "list", fields: [{ label: "Quote", name: "quote", widget: "text" }, { label: "Author", name: "author", widget: "string" }] }
-      - { label: "WhatsApp CTA", name: "ctaButton", widget: "object", fields: [{ label: "Text", name: "text", widget: "string" }, { label: "URL", name: "url", widget: "string" }] }
+    files:
+      - name: "hero"
+        label: "Hero Section"
+        file: "content/sections/hero.json"
+        fields:
+          - { label: "Main Heading", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "string" }
+          - { label: "Video ID", name: "videoId", widget: "string" }
+      - name: "featuredIn"
+        label: "Trainings & Workshops"
+        file: "content/sections/featuredIn.json"
+        fields:
+          - { label: "Brand Logos", name: "logos", widget: "list", fields: [{label: "Image", name: "image", widget: "image"}] }
+      - name: "webinarInfo"
+        label: "Webinar Information"
+        file: "content/sections/webinarInfo.json"
+        fields:
+          - { label: "Session Details", name: "details", widget: "markdown" }
+      - name: "webinarDates"
+        label: "Webinar Dates"
+        file: "content/sections/webinarDates.json"
+        fields:
+          - { label: "Available Sessions", name: "dates", widget: "list", fields: [{label: "Date", name: "date", widget: "datetime"}, {label: "Time", name: "time", widget: "string"}] }
+      - name: "alternatives"
+        label: "Alternative Webinar Dates"
+        file: "content/sections/webinar/alternatives.json"
+        fields:
+          - { label: "Alternative Options", name: "options", widget: "list", fields: [{label: "Message", name: "message", widget: "string"}, {label: "URL", name: "url", widget: "string"}] }
+      - name: "testimonials"
+        label: "Success Stories"
+        file: "content/sections/testimonials.json"
+        fields:
+          - { label: "Quotes", name: "quotes", widget: "list", fields: [{label: "Quote", name: "quote", widget: "text"}, {label: "Author", name: "author", widget: "string"}] }
+      - name: "cta"
+        label: "Final CTA"
+        file: "content/sections/cta.json"
+        fields:
+          - { label: "CTA Text", name: "ctaText", widget: "string" }
+          - { label: "CTA Link", name: "ctaUrl", widget: "string" }
 
   # 📚 BLOG
   - name: "blog"
     label: "Blog Posts"
     folder: "content/blog/posts"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "blogCategories"
+    label: "Blog Categories"
+    file: "content/blog/categories.json"
+    fields:
+      - { label: "Categories", name: "categories", widget: "list", fields: [{label: "Name", name: "name", widget: "string"}] }
+  - name: "blogAuthors"
+    label: "Blog Authors"
+    file: "content/blog/authors.json"
+    fields:
+      - { label: "Authors", name: "authors", widget: "list", fields: [{label: "Name", name: "name", widget: "string"}, {label: "Bio", name: "bio", widget: "text"}] } 
 
   # 📄 STATIC PAGES
   - name: "pages"
     label: "Static Pages"
     folder: "content/pages"
     create: true
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Content", name: "content", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown" }
