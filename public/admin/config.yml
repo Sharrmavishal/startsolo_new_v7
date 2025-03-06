@@ -23,39 +23,31 @@ collections:
         label: "General Settings"
         file: "content/settings/general.json"
         fields:
-          - { label: "Site Title", name: "siteTitle", widget: "string", hint: "Max 60 characters" }
-          - { label: "Site Description", name: "siteDescription", widget: "text", hint: "Max 160 characters" }
+          - { label: "Site Title", name: "siteTitle", widget: "string", hint: "Max 60 characters. Example: 'Start Solo'" }
+          - { label: "Site Description", name: "siteDescription", widget: "text", hint: "Max 160 characters. Example: 'Your ultimate solopreneur business launchpad'" }
           - { label: "Logo", name: "logo", widget: "image", hint: "200x50px, max 100KB, SVG preferred" }
       - name: "seo"
         label: "SEO Settings"
         file: "content/settings/seo.json"
         fields:
-          - { label: "Meta Title", name: "metaTitle", widget: "string" }
-          - { label: "Meta Description", name: "metaDescription", widget: "text", hint: "Max 160 characters" }
-          - { label: "Open Graph Image", name: "ogImage", widget: "image", hint: "1200x630px, max 300KB" }
-          - { label: "Schema Markup", name: "schemaMarkup", widget: "text" }
+          - { label: "Meta Title", name: "metaTitle", widget: "string", hint: "Example: 'Start Solo | Launch Your Business'" }
+          - { label: "Meta Description", name: "metaDescription", widget: "text", hint: "Max 160 characters. Example: 'Learn how to start and scale your solopreneur business'" }
+          - { label: "Open Graph Image", name: "ogImage", widget: "image", hint: "1200x630px, max 300KB, used for social sharing" }
+          - { label: "Schema Markup", name: "schemaMarkup", widget: "text", hint: "For advanced SEO, add structured JSON-LD schema" }
       - name: "branding"
         label: "Branding & Theme"
         file: "content/settings/branding.json"
         fields:
-          - { label: "Primary Color", name: "primaryColor", widget: "color" }
-          - { label: "Font", name: "font", widget: "string" }
+          - { label: "Primary Color", name: "primaryColor", widget: "color", hint: "Select a color that matches your brand theme" }
+          - { label: "Font", name: "font", widget: "string", hint: "Example: 'Poppins' or 'Roboto'" }
       - name: "integrations"
         label: "Third-Party Integrations"
         file: "content/settings/integrations.json"
         fields:
-          - { label: "WhatsApp CTA Text", name: "whatsappText", widget: "string" }
-          - { label: "WhatsApp Link", name: "whatsappUrl", widget: "string" }
+          - { label: "WhatsApp CTA Text", name: "whatsappText", widget: "string", hint: "Example: 'Join our WhatsApp community'" }
+          - { label: "WhatsApp Link", name: "whatsappUrl", widget: "string", hint: "Full WhatsApp group link" }
           - { label: "WhatsApp Sticky CTA Enabled", name: "whatsappSticky", widget: "boolean", default: true }
           - { label: "Floating Registration CTA", name: "floatingCTA", widget: "boolean", default: true }
-          - { label: "Popup Notifications", name: "popupNotifications", widget: "list", fields: [{ label: "Message", name: "message", widget: "string" }, { label: "Trigger Event", name: "trigger", widget: "string" }] }
-      - name: "countdown"
-        label: "Countdown Timer"
-        file: "content/settings/countdown.json"
-        fields:
-          - { label: "Timer Enabled", name: "enabled", widget: "boolean", default: true, hint: "Enable or disable the countdown timer" }
-          - { label: "Message", name: "message", widget: "string", hint: "Max 60 characters. Example: 'Only a few days left before registration closes!'" }
-          - { label: "End Date", name: "endDate", widget: "datetime", hint: "Format: ISO 8601 (e.g., 2025-06-10T23:59:59+05:30)" }
 
   - name: "navigation"
     label: "Header & Footer"
@@ -68,7 +60,7 @@ collections:
             name: "menu"
             widget: "list"
             fields:
-              - { label: "Label", name: "label", widget: "string", hint: "Max 20 characters" }
+              - { label: "Label", name: "label", widget: "string", hint: "Max 20 characters. Example: 'Home'" }
               - { label: "URL", name: "url", widget: "string", hint: "Use #section-id for smooth scrolling to landing page sections or full URL for external links." }
               - { label: "Submenu", name: "submenu", widget: "list", required: false, fields: [{ label: "Label", name: "label", widget: "string" }, { label: "URL", name: "url", widget: "string" }] }
       - name: "footer"
@@ -85,9 +77,9 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "SEO Meta Description", name: "metaDescription", widget: "text" }
-      - { label: "URL Slug", name: "slug", widget: "string", hint: "Set the page URL" }
+      - { label: "Title", name: "title", widget: "string", hint: "Example: 'Success Stories'" }
+      - { label: "SEO Meta Description", name: "metaDescription", widget: "text", hint: "Max 160 characters" }
+      - { label: "URL Slug", name: "slug", widget: "string", hint: "Set the page URL. Example: 'success-stories'" }
       - { label: "Sections", name: "sections", widget: "list", fields: [{ label: "Type", name: "type", widget: "select", options: ["hero", "testimonials", "cta", "faq", "features", "pricing", "gallery"] }, { label: "Content", name: "content", widget: "markdown" }] }
 
   - name: "popup_notifications"
@@ -95,4 +87,4 @@ collections:
     folder: "content/settings/popups"
     create: true
     fields:
-      - { label: "Notification Messages", name: "messages", widget: "list", fields: [{ label: "Message", name: "message", widget: "string" }, { label: "Trigger", name: "trigger", widget: "string" }] }
+      - { label: "Notification Messages", name: "messages", widget: "list", fields: [{ label: "Message", name: "message", widget: "string", hint: "Example: 'Only 3 spots left for the next session!'" }, { label: "Trigger", name: "trigger", widget: "string", hint: "When should this popup appear?" }] }
